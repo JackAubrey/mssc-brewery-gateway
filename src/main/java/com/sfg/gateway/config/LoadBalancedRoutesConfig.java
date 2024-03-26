@@ -1,5 +1,7 @@
 package com.sfg.gateway.config;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -9,12 +11,14 @@ import org.springframework.context.annotation.Profile;
 /**
  * Created by jt on 3/7/20.
  */
-@Profile("local-discovery")
+@Slf4j
+@ConditionalOnProperty(name = "router.type", havingValue = "local-discovery")
 @Configuration
 public class LoadBalancedRoutesConfig {
 
     @Bean
     public RouteLocator loadBalancedRoutes(RouteLocatorBuilder builder){
+        log.info(">>>> LoadBalancedRoutesConfig");
         return builder.routes()
                 .route("beer-service", r -> r.path("/api/v1/beer*", "/api/v1/beer/*", "/api/v1/beerUpc/*")
                         .uri("lb://beer-service"))
