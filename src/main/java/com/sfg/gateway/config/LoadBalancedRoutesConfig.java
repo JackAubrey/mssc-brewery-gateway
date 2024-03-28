@@ -1,7 +1,6 @@
 package com.sfg.gateway.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.Profile;
  * Created by jt on 3/7/20.
  */
 @Slf4j
-@ConditionalOnProperty(name = "router.type", havingValue = "local-discovery")
+@Profile("local-discovery")
 @Configuration
 public class LoadBalancedRoutesConfig {
 
@@ -25,10 +24,10 @@ public class LoadBalancedRoutesConfig {
                 .route("order-service", r -> r.path("/api/v1/customers/**")
                         .uri("lb://order-service"))
                 .route("inventory-service", r -> r.path("/api/v1/beer/*/inventory")
-                        .filters(f -> f.circuitBreaker(c -> c.setName("inventoryCB")
-                                        .setFallbackUri("forward:/inventory-failover")
-                                        .setRouteId("inv-failover")
-                                    ))
+//                        .filters(f -> f.circuitBreaker(c -> c.setName("inventoryCB")
+//                                        .setFallbackUri("forward:/inventory-failover")
+//                                        .setRouteId("inv-failover")
+//                                    ))
                         .uri("lb://inventory-service"))
                 .route("inventory-failover-service", r -> r.path("/inventory-failover/**")
                         .uri("lb://inventory-failover"))

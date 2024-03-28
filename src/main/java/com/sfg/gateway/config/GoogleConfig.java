@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Profile;
  * Created by jt on 3/5/20.
  */
 @Slf4j
-@ConditionalOnProperty(name = "router.type", havingValue = "google")
+@Profile("google")
 @Configuration
 public class GoogleConfig {
 
