@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
-        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud.version>2023.0.1</spring-cloud.version>
         <docker.image.prefix>sfgbeerworks</docker.image.prefix>
         <docker.image.name>${project.artifactId}</docker.image.name>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -54,11 +54,27 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-zipkin</artifactId>-->
-<!--            <version>2.2.8.RELEASE</version>-->
-<!--        </dependency>-->
+
+        <!-- Needed to SpringBoot 3 Distributed Tracing. -->
+        <!-- SpringBoot 3 doesn't work with Sleuth anymore -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing-bridge-brave</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.reporter2</groupId>
+            <artifactId>zipkin-reporter-brave</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-micrometer</artifactId>
+        </dependency>
+        <!-- END to SpringBoot 3 Distributed Tracing. -->
+
         <!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
 <!--        <dependency>-->
 <!--            <groupId>net.logstash.logback</groupId>-->
