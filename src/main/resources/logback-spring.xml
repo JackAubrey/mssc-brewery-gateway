@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    ​
+
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
 
     <!-- You can override this to have a custom pattern -->
@@ -27,11 +27,10 @@
                         {
                         "severity": "%level",
                         "service": "${springAppName:-}",
-                        "trace": "%X{X-B3-TraceId:-}",
-                        "span": "%X{X-B3-SpanId:-}",
-                        "parent": "%X{X-B3-ParentSpanId:-}",
-                        "exportable": "%X{X-Span-Export:-}",
-                        "baggage": "%X{key:-}",
+                        "trace": "%X{traceId:-}",
+                        "span": "%X{spanId:-}",
+                        "parent": "%X{parentId:-}",
+                        "exportable": "%X{sample:-}",
                         "pid": "${PID:-}",
                         "thread": "%thread",
                         "class": "%logger{40}",
@@ -42,7 +41,7 @@
             </providers>
         </encoder>
     </appender>
-    ​
+
     <root level="INFO">
         <appender-ref ref="jsonConsole"/>
     </root>
