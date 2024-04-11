@@ -27,11 +27,6 @@
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <lombok.version>1.18.30</lombok.version>
         <spring-cloud.version>2023.0.1</spring-cloud.version>
-
-        <!-- set this to your docker act name -->
-        <docker.image.prefix>sfgbeerworks</docker.image.prefix>
-        <!-- set to name of project -->
-        <docker.image.name>${project.artifactId}</docker.image.name>
     </properties>
 
     <dependencyManagement>
