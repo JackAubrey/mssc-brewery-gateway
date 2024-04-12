@@ -15,6 +15,38 @@
     <version>1.0-SNAPSHOT</version>
     <name>mssc-brewery-gateway</name>
     <description>Brewery Gateway</description>
+    <url>https://github.com/JackAubrey/mssc-brewery-gateway</url>
+    <packaging>jar</packaging>
+    <licenses>
+        <license>
+            <name>GNU General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/gpl.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>John Thompson</name>
+            <organization>Spring Framework Guru</organization>
+        </developer>
+        <developer>
+            <name>Danilo</name>
+            <organization>SFG Students</organization>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:JackAubrey/mssc-brewery-gateway.git</connection>
+        <developerConnection>scm:git:git@github.com:JackAubrey/mssc-brewery-gateway.git</developerConnection>
+        <url>https://github.com/JackAubrey/mssc-brewery-gateway</url>
+        <tag>HEAD</tag>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub JackAubrey Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/JackAubrey/${project.artifactId}</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
