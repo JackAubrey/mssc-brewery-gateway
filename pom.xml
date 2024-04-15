@@ -10,7 +10,7 @@
     <groupId>com.github.sfg-beer-works</groupId>
     <artifactId>mssc-brewery-gateway</artifactId>
 
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>mssc-brewery-gateway</name>
     <description>Brewery Gateway</description>
     <url>https://github.com/JackAubrey/mssc-brewery-gateway</url>
@@ -36,7 +36,7 @@
         <connection>scm:git:git@github.com:JackAubrey/mssc-brewery-gateway.git</connection>
         <developerConnection>scm:git:git@github.com:JackAubrey/mssc-brewery-gateway.git</developerConnection>
         <url>https://github.com/JackAubrey/mssc-brewery-gateway</url>
-        <tag>1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
     <distributionManagement>
         <repository>
