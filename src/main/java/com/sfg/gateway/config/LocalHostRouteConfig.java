@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Profile;
  * Created by jt on 3/7/20.
  */
 @Slf4j
-@Profile("!local-discovery")
+@Profile("!cloud-local")
 @Configuration
 public class LocalHostRouteConfig {
 
